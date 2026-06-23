@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snigdha M Gowda — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1A7A8A;
+    --teal-dark: #0d5c6b;
+    --teal-light: #e0f2f5;
+    --teal-mid: #b2dfe6;
+    --ink: #111827;
+    --ink-mid: #374151;
+    --ink-soft: #6B7280;
+    --bg: #f8fafb;
+    --white: #ffffff;
+    --border: #e5e9ec;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ─────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── HERO ────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 7rem 2rem 4rem;
+    max-width: 760px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--teal);
+  }
+  .hero-name {
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .hero-name span {
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--teal-mid);
+    color: var(--teal-dark);
+    background: var(--teal-light);
+    letter-spacing: 0.03em;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--teal);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  .hero-cta svg { width: 16px; height: 16px; }
+
+  .scroll-hint {
+    position: absolute; bottom: 2.5rem; left: 2rem;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-soft); letter-spacing: 0.06em;
+    display: flex; align-items: center; gap: 8px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+  .scroll-hint::before {
+    content:'';
+    display:block; width:1px; height:32px;
+    background: var(--teal-mid);
+  }
+
+  /* ── SECTIONS ────────────────────────────── */
+  section { padding: 5rem 2rem; max-width: 760px; margin: 0 auto; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── ABOUT ───────────────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .about-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .about-card-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .about-card-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+  .about-card h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .about-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+  .about-bio {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    border-left: 3px solid var(--teal);
+  }
+
+  /* ── EDUCATION ───────────────────────────── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 15px; top: 6px; bottom: 6px;
+    width: 1px; background: var(--teal-mid);
+  }
+  .tl-item { display: flex; gap: 2rem; margin-bottom: 2rem; padding-left: 0; }
+  .tl-dot {
+    width: 31px; height: 31px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .tl-dot-inner {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .tl-body {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+  }
+  .tl-year {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--teal); letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .tl-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .tl-school { font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+  .tl-bullets { list-style: none; }
+  .tl-bullets li {
+    font-size: 13px; color: var(--ink-soft);
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+  .tl-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--teal); font-size: 10px; top: 5px;
+  }
+
+  /* ── SKILLS ──────────────────────────────── */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+  .skill-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .skill-card-header svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .skill-lang { font-size: 15px; font-weight: 500; color: var(--ink); }
+  .skill-bar-bg {
+    height: 5px; background: var(--teal-light);
+    border-radius: 10px; overflow: hidden; margin-bottom: 10px;
+  }
+  .skill-bar {
+    height: 5px; border-radius: 10px;
+    background: linear-gradient(90deg, var(--teal-mid), var(--teal));
+    width: 0; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .skill-bullets { list-style: none; }
+  .skill-bullets li {
+    font-size: 12px; color: var(--ink-soft);
+    padding: 2px 0 2px 14px; position: relative;
+  }
+  .skill-bullets li::before {
+    content:'·'; position:absolute; left:0;
+    color: var(--teal); font-size:16px; top:-1px;
+  }
+  .strengths-wrap { margin-top: 1.5rem; }
+  .strengths-title { font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-bottom: 12px; font-family: var(--mono); letter-spacing: 0.05em; text-transform: uppercase; }
+  .strengths { display: flex; flex-wrap: wrap; gap: 8px; }
+  .strength {
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    border: 1px solid var(--teal-mid);
+    font-weight: 400;
+  }
+
+  /* ── PROJECTS ────────────────────────────── */
+  .projects-grid { display: grid; gap: 1rem; }
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex; gap: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .proj-card:hover {
+    border-color: var(--teal-mid);
+    transform: translateY(-2px);
+  }
+  .proj-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal-mid);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .proj-content h3 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+  .proj-tag {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--teal); background: var(--teal-light);
+    padding: 2px 8px; border-radius: 4px;
+    display: inline-block; margin-bottom: 10px;
+  }
+  .proj-content p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
+  /* ── HOBBIES ─────────────────────────────── */
+  .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .hobby-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .hobby-icon-wrap {
+    width: 56px; height: 56px; margin: 0 auto 1.2rem;
+    background: var(--teal-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hobby-icon-wrap svg { width: 26px; height: 26px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+  .hobby-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .hobby-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ── CONTACT / FOOTER ────────────────────── */
+  .contact-section {
+    background: var(--teal-dark);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .contact-section .section-label { color: var(--teal-mid); }
+  .contact-section .section-title { color: #fff; margin-bottom: 1rem; }
+  .contact-desc { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 2.5rem; }
+  .contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; color: rgba(255,255,255,0.85);
+  }
+  .contact-item svg { width: 16px; height: 16px; stroke: var(--teal-mid); fill: none; stroke-width: 1.8; flex-shrink:0; }
+
+  footer {
+    background: var(--teal-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 1.25rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ANIMATIONS ──────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1.2rem; }
+    .hero { padding: 6rem 1.2rem 3rem; }
+    section { padding: 3.5rem 1.2rem; }
+    .about-grid, .skills-grid, .hobbies-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: 38px; }
+    .tl-item { gap: 1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .scroll-hint { animation: none; }
+    .skill-bar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">snigdha.dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-eyebrow">Hello, I'm</div>
+  <h1 class="hero-name">Snigdha<br><span>M Gowda</span></h1>
+  <p class="hero-sub">CSE student at REVA University · Coder · Badminton player · Music lover</p>
+  <div class="hero-chips">
+    <span class="chip">C Programming</span>
+    <span class="chip">Python</span>
+    <span class="chip">HTML</span>
+    <span class="chip">Bengaluru</span>
+    <span class="chip">2024 Batch</span>
+  </div>
+  <a href="#about" class="hero-cta">
+    View my work
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+  </a>
+  <div class="scroll-hint">scroll</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 · About</div>
+  <h2 class="section-title">A little about me</h2>
+  <div class="about-bio reveal">
+    I'm a 19-year-old first-year Computer Science student passionate about building things with code. I approach every problem with curiosity, creativity, and a desire to keep growing — whether that's debugging a C program or learning a new song on my playlist.
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-card">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <h3>Location</h3>
+      <p>Bengaluru, Karnataka, India</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <h3>Currently</h3>
+      <p>1st year CSE · Sem I & II · REVA University</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <h3>Age</h3>
+      <p>19 years old · 2024 CSE Batch</p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-icon">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Goal</h3>
+      <p>Build real-world projects · Grow as a developer</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">02 · Education</div>
+  <h2 class="section-title">My academic path</h2>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-body">
+        <div class="tl-year">2024 – PRESENT</div>
+        <div class="tl-title">B.E. Computer Science & Engineering</div>
+        <div class="tl-school">REVA University, Bengaluru · Semester I & II</div>
+        <ul class="tl-bullets">
+          <li>C Programming, Problem Solving, Engineering Mathematics, Physics</li>
+          <li>Active in department coding clubs and technical workshops</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-body">
+        <div class="tl-year">COMPLETED 2024</div>
+        <div class="tl-title">Pre-University Course (PCMB)</div>
+        <div class="tl-school">Sai Angels PU College, Bengaluru</div>
+        <ul class="tl-bullets">
+          <li>Science stream — Physics, Chemistry, Mathematics, Biology</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-body">
+        <div class="tl-year">COMPLETED 2022</div>
+        <div class="tl-title">Secondary Education</div>
+        <div class="tl-school">St. Mary's International School, Bengaluru</div>
+        <ul class="tl-bullets">
+          <li>CBSE curriculum · Science & Computers focus</li>
+          <li>Strong foundation in analytical and logical thinking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">03 · Skills</div>
+  <h2 class="section-title">What I work with</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span class="skill-lang">C Programming</span>
+      </div>
+      <div class="skill-bar-bg"><div class="skill-bar" data-width="78"></div></div>
+      <ul class="skill-bullets">
+        <li>Loops, functions, arrays, pointers</li>
+        <li>Sorting algorithms (Bubble, Selection)</li>
+        <li>File I/O and pattern programs</li>
+      </ul>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span class="skill-lang">Python</span>
+      </div>
+      <div class="skill-bar-bg"><div class="skill-bar" data-width="65"></div></div>
+      <ul class="skill-bullets">
+        <li>Lists, dicts, control flow, strings</li>
+        <li>Simple automation scripts</li>
+        <li>Logic-based mini-programs</li>
+      </ul>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+        <span class="skill-lang">HTML</span>
+      </div>
+      <div class="skill-bar-bg"><div class="skill-bar" data-width="60"></div></div>
+      <ul class="skill-bullets">
+        <li>HTML5 semantic structure</li>
+        <li>Forms, links, page layout</li>
+        <li>Static web pages</li>
+      </ul>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M2 12h4m12 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+        <span class="skill-lang">Problem Solving</span>
+      </div>
+      <div class="skill-bar-bg"><div class="skill-bar" data-width="70"></div></div>
+      <ul class="skill-bullets">
+        <li>Algorithmic thinking</li>
+        <li>Pattern recognition</li>
+        <li>Structured debugging</li>
+      </ul>
+    </div>
+  </div>
+  <div class="strengths-wrap reveal">
+    <div class="strengths-title">Core strengths</div>
+    <div class="strengths">
+      <span class="strength">Quick learner</span>
+      <span class="strength">Team player</span>
+      <span class="strength">Detail-oriented</span>
+      <span class="strength">Creative thinker</span>
+      <span class="strength">Time management</span>
+      <span class="strength">Self-driven</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">04 · Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="projects-grid">
+    <div class="proj-card reveal">
+      <div class="proj-num">01</div>
+      <div class="proj-content">
+        <h3>Personal Portfolio Webpage</h3>
+        <span class="proj-tag">HTML</span>
+        <p>Designed and coded a personal profile webpage using HTML5 semantic elements — headings, lists, hyperlinks, and structured sections. My first step into web development.</p>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-num">02</div>
+      <div class="proj-content">
+        <h3>Sorting Algorithm Visualizer</h3>
+        <span class="proj-tag">C Programming</span>
+        <p>Implemented Bubble Sort and Selection Sort from scratch, alongside number pattern programs. Focused on logic building, loop control, and understanding algorithmic complexity.</p>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-num">03</div>
+      <div class="proj-content">
+        <h3>Python Mini-Script Collection</h3>
+        <span class="proj-tag">Python</span>
+        <p>A set of small Python programs — calculator, string reversal, data type exercises — written as part of self-driven practice to strengthen core scripting skills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" style="padding-bottom: 2rem;">
+  <div class="section-label">05 · Beyond code</div>
+  <h2 class="section-title">What I do off-screen</h2>
+  <div class="hobbies-grid">
+    <div class="hobby-card reveal">
+      <div class="hobby-icon-wrap">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M5 5l4.5 4.5M14.5 14.5 19 19M5 19l4.5-4.5M14.5 9.5 19 5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+      </div>
+      <h3>Badminton</h3>
+      <p>Competitive player who's represented at inter-school and inter-college level. The sport has taught me focus, reflexes, and how to stay calm under pressure — skills I bring to coding too.</p>
+    </div>
+    <div class="hobby-card reveal">
+      <div class="hobby-icon-wrap">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <h3>Music</h3>
+      <p>A passionate listener and performer who's taken the stage at school cultural events. Music fuels creativity and patience — two qualities that make a better developer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="section-label">06 · Contact</div>
+  <h2 class="section-title">Let's connect</h2>
+  <p class="contact-desc">I'm open to internships, collaborations, and learning opportunities. Feel free to reach out!</p>
+  <div class="contact-info">
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Bengaluru, Karnataka
+    </div>
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      snigdha@reva.edu.in
+    </div>
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      github.com/snigdhamgowda
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Snigdha M Gowda · Built with HTML & CSS · Hosted on GitHub Pages
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  const bars = document.querySelectorAll('.skill-bar');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 200);
+        barObserver.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => barObserver.observe(b));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
