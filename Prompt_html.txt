@@ -5,7 +5,7 @@ GitHub:https://github.com/saanvi-chavala/SaanviChavala.com.git
 Prompt 1: Resume making
 
 ME:
-i am saanvi chavala,19years old ,currently studying 1st 2nd sem CSE in reva university,i did my schooling in sophia high school, and puc in vidya mandir, my hobbies are badminton,music. add skills accordingly. pls create a unique resume based on this
+i am snigdha m gowda ,19years old ,currently studying 1st 2nd sem CSE in reva university,i did my schooling in st marys international  school, and puc in sai angles, my hobbies are badminton,music. add skills accordingly. pls create a unique resume based on this
 
 CLAUDE:
 Your resume is ready! Here's what's included:
@@ -40,8 +40,8 @@ Going with **Navy Blue & Coral** + **Two-column layout** (sidebar with photo pla
 - **Skill proficiency dots** so it looks visual and honest for a fresher
 
 **Education dates fixed:**
-- Sophia High School → **2023**
-- Vidya Mandir PUC → **2025**
+- St marys international School → **2023**
+- sai angles PUC → **2025**
 - REVA University → **2025 – Present**
 
 Things to fill in before sharing: your email, phone number, LinkedIn URL, and any certifications you have. Let me know if you want any tweaks!
@@ -56,7 +56,7 @@ CLAUDE:
 Two quick updates made to the v2 resume:
 
 - **Languages** → Telugu (Native), English (Proficient), Hindi (Conversational)
-- **Sophia High School** → now shows **ICSE – 10th Standard**
+- **st marys** → now shows **ICSE – 10th Standard**
 
 Everything else stays exactly the same. Let me know if you need any other edits!
 
