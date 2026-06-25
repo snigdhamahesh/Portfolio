@@ -14,7 +14,7 @@ Your resume is ready! Here's what's included:
 
 **Sections covered:**
 - Career Objective (tailored for a 1st-year CSE student)
-- Education table — REVA University → Vidya Mandir PUC → Sophia High School
+- Education table — REVA University → sai angles PUC → St marys international School
 - Technical Skills — split into Programming Languages, Tools & Technologies, and Core CS Concepts (filled in with beginner-friendly but relevant skills for your year)
 - Projects — your Anti-Tailgating ESP32 project featured prominently, plus a portfolio website
 - Soft Skills & Interests (Badminton + Music with a short note on what each reflects about you)
@@ -26,7 +26,7 @@ A couple of things to update before sending it out: fill in your actual email, p
 Prompt 2: 
 
 ME:
-different color and layout and in education sophia is 2023,vidya mandir is 2025,reva is 2025-present
+different color and layout and in education st marys  is 2023,sai angles is 2025,reva is 2025-present
 
 CLAUDE:
 Got it — I'll pick what I think looks most striking and professional for a CSE fresher!
@@ -55,7 +55,7 @@ the previous resume but with changes , my native language is telugu,and 10th ics
 CLAUDE:
 Two quick updates made to the v2 resume:
 
-- **Languages** → Telugu (Native), English (Proficient), Hindi (Conversational)
+- **Languages** → kannada (Native), English (Proficient), Hindi (Conversational)
 - **st marys** → now shows **ICSE – 10th Standard**
 
 Everything else stays exactly the same. Let me know if you need any other edits!
