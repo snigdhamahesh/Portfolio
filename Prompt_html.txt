@@ -1,6 +1,6 @@
 Personal Portfolio
 Project Documentation & Interaction Log
-GitHub:https://github.com/saanvi-chavala/SaanviChavala.com.git
+GitHub:https://github.com/snigdha-m-gowda/snigdhamgowda.com.git
 
 Prompt 1: Resume making
 
